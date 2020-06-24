@@ -1,0 +1,17 @@
+{
+  "name": "masterapi",
+  "version": "1.0.0",
+  "description": "Master API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "body-parser": "1.19.0",
+    "mongoose": "5.9.19"
+  },
+  "author": "Deepak Nehra",
+  "license": "ISC",
+  "devDependencies": {}
+}
