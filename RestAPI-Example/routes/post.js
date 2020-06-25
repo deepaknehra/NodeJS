@@ -29,7 +29,7 @@ router.post('/', async (req,res) => {
 
 router.get('/:postid', async (req,res) => {
     try{
-        console.log(req.params.postid);
+       //console.log(req.params.postid);
         const posts = await Post.findById(req.params.postid);
         res.json(posts);
     }catch(err){
@@ -40,7 +40,7 @@ router.get('/:postid', async (req,res) => {
 //Delete
 router.delete('/:postid', async (req,res) => {
     try{
-        console.log(req.params.postid);
+        //console.log(req.params.postid);
         const removeposts = await Post.remove({_id:req.params.postid});
         res.json(removeposts);
     }catch(err){
@@ -52,7 +52,7 @@ router.delete('/:postid', async (req,res) => {
 //Update
 router.patch('/:postid', async (req,res) => {
     try{
-        console.log(req.params.postid);
+        //console.log(req.params.postid);
         const updatePost = await Post.updateOne(
             {_id:req.params.postid},
             {$set: {title:req.body.title}}

@@ -33,22 +33,45 @@ router.post('/enrollment', async (req,res) => {
 
 //Login
 router.post('/login', (req,res) => {
-    const member = {
-        Email:req.body.Email,
-        Password:req.body.Password
+
+    try{
+        //console.log(req.body.Email);
+        //console.log(req.body.Password);
+
+        const member = Member.find().limit(1);
+        console.log(member.FirstName);
+        if(member){
+            jwt.sign({member},'secreatkey', {expiresIn: '30s'}, (err,token)=>{
+                res.json({token});
+            });
+
+        }else{
+            res.sendStatus(403);
+        }
+
+    }catch(err){
+        res.json({message:err});
     }
 
-    jwt.sign({member},'secreatkey',(err,token)=>{
-        res.json({token});
-    });
+   
+    
    
 });
 
 
 router.get('/memberinfo', verifyToken, (req,res) => {
     try{
-        const memberinfo =  Member.findById(req.body._id);
-        res.json(memberinfo);
+
+        jwt.verify(req.token, 'secreatkey', (err, authdata)=>{
+            if(err){
+                res.sendStatus(403);
+            }
+            else
+            {
+                const memberinfo =  Member.findById(req.body._id);
+                res.json(memberinfo);
+            }
+        });      
     }catch(err){
         res.json({message:err});
     }
