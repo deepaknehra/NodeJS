@@ -33,43 +33,43 @@ router.post('/enrollment', async (req,res) => {
 
 //Login
 router.post('/login', (req,res) => {
-
     try{
-        //console.log(req.body.Email);
-        //console.log(req.body.Password);
+        Member.findOne({ Email: req.body.Email,Password:req.body.Password}, function(err, result) {
+            if (err) {
+              res.send(err);
+            } else {
+                        //res.send(result);
+                        if(result){
+                        jwt.sign({result},'secreatkey', {expiresIn: '30s'}, (err,token)=>{
+                            res.json({token});
+                        });
 
-        const member = Member.find().limit(1);
-        console.log(member.FirstName);
-        if(member){
-            jwt.sign({member},'secreatkey', {expiresIn: '30s'}, (err,token)=>{
-                res.json({token});
-            });
-
-        }else{
-            res.sendStatus(403);
-        }
+                    }else{
+                        res.sendStatus(403);
+                    }
+            }
+          });
 
     }catch(err){
         res.json({message:err});
     }
 
    
-    
-   
 });
-
 
 router.get('/memberinfo', verifyToken, (req,res) => {
     try{
-
+        //console.log('sat1  :'+req.token);
         jwt.verify(req.token, 'secreatkey', (err, authdata)=>{
+            console.log(err);
             if(err){
                 res.sendStatus(403);
             }
             else
             {
-                const memberinfo =  Member.findById(req.body._id);
-                res.json(memberinfo);
+                console.log(authdata.result._id);
+              //  const memberinfo =  Member.findById(req.body._id);
+                res.json(authdata.result);
             }
         });      
     }catch(err){
@@ -81,7 +81,7 @@ function verifyToken(req,res,next){
     //get auth header value
     const bearerHeader = req.headers['authorization'];
     
-    console.log(bearerHeader);
+    //console.log(bearerHeader);
     //check if bearer is undefined
     if(typeof bearerHeader !== 'undefined')
     {
@@ -90,6 +90,7 @@ function verifyToken(req,res,next){
         const bearerToken = bearer[1];
         //Set the Token
         req.token = bearerToken;
+      
         //next middleware
         next();
     }else{

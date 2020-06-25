@@ -23,10 +23,13 @@ app.get('/', (req, res) => {
 
 //Connect to database
 mongoose.connect(
-    'mongodb://localhost/test', //process.env.DB_CONNECTION,
+    'mongodb://localhost:27017/test', //process.env.DB_CONNECTION,
     { useNewUrlParser: true},
     ()=> console.log('connected to db')
 );
+
+// mongoose.connect('mongodb://localhost/test');
+// mongoose.set('debug', true);
 
 
 //Lsitening to the server
