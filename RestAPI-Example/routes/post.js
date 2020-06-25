@@ -3,6 +3,7 @@ const Post = require('../models/Post');
 const bodyParser = require('body-parser');
 const router = express.Router();
 
+// Get All Post
 router.get('/', async (req,res) => {
     try{
         const posts = await Post.find();
@@ -12,6 +13,7 @@ router.get('/', async (req,res) => {
     }
 });
 
+//Save Post
 router.post('/', async (req,res) => {
     const npost = new Post({
         title:req.body.title,

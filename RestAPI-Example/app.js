@@ -2,15 +2,19 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
+const jwt = require('jsonwebtoken');
 
 require("dotenv/config");
 
 app.use(bodyparser.json());
 
-//Import Routes
+//Import Post Routes
 const postRoute = require('./routes/post');
-
 app.use('/post', postRoute);
+
+//Import Member Routes
+const memberRoute = require('./routes/member');
+app.use('/member', memberRoute);
 
 //Request
 app.get('/', (req, res) => {
