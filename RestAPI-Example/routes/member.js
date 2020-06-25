@@ -31,7 +31,7 @@ router.post('/enrollment', async (req,res) => {
     }
 });
 
-//Login
+//Login with JWT
 router.post('/login', (req,res) => {
     try{
         Member.findOne({ Email: req.body.Email,Password:req.body.Password}, function(err, result) {
