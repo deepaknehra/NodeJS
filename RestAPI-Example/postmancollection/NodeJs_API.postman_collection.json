@@ -7,7 +7,10 @@
 		"c489c64e-2353-5467-cd3b-6a5eb5afef49",
 		"08d95d19-8220-530f-238e-4d502d794981",
 		"fb064700-fe22-6dca-7308-72a1e37dfa72",
-		"ac8aae36-5416-de1f-5e6c-f20431e102ff"
+		"ac8aae36-5416-de1f-5e6c-f20431e102ff",
+		"e596e5ec-de85-ae4b-89ee-6dfd704d4bb1",
+		"316533fb-bc34-35fc-3c10-e38dd77c3ad7",
+		"ecfe2af4-938f-14b8-41da-abdb1bba4d1f"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -43,6 +46,35 @@
 			"collectionId": "030f9c61-92b9-84da-778d-a41f3256e121",
 			"responses": [],
 			"rawModeData": "{\n    \"title\": \"this is first post Updated!!\"\n}"
+		},
+		{
+			"id": "316533fb-bc34-35fc-3c10-e38dd77c3ad7",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/member/login",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1593066187217,
+			"name": "Login",
+			"description": "",
+			"collectionId": "030f9c61-92b9-84da-778d-a41f3256e121",
+			"responses": [],
+			"rawModeData": "{\n\t\"Email\":\"deepaknehra9@gmail.com\",\n\t\"Password\":\"Deepak@123456\"\n}"
 		},
 		{
 			"id": "ac8aae36-5416-de1f-5e6c-f20431e102ff",
@@ -114,6 +146,71 @@
 			"collectionId": "030f9c61-92b9-84da-778d-a41f3256e121",
 			"responses": [],
 			"rawModeData": "{\n\t\"title\":\"this is third post\",\n\t\"description\":\"this is description\"\n}"
+		},
+		{
+			"id": "e596e5ec-de85-ae4b-89ee-6dfd704d4bb1",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/member/enrollment",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1593068065131,
+			"name": "Member Enrollment",
+			"description": "",
+			"collectionId": "030f9c61-92b9-84da-778d-a41f3256e121",
+			"responses": [],
+			"rawModeData": "{\n\t\"Salutation\":\"Mr.\",\n\t\"FirstName\":\"Deepak\",\n\t\"LastName\":\"Nehra\",\n\t\"Gender\":\"Male\",\n\t\"BirthDate\":\"12-27-1987\",\n\t\"Email\":\"deepaknehr91@gmail.com\",\n\t\"Password\":\"Deepak@123456\",\n\t\"Mobile\":\"8130218850\",\n\t\"AlternateMobile\":\"8130218850\",\n\t\"Country\":\"India\",\n\t\"State\":\"Haryana\",\n\t\"ZipCode\":\"122001\",\n\t\"Address\":\"C-56 South City, Phase-1\",\n\t\"Skills\":[{\n\t\t\"Skill\":\"C#\"\n\t\t},\n\t\t{\n\t\t\"Skill\":\"C++\"\n\t\t},\n\t\t{\n\t\t\"Skill\":\".Net\"\n\t\t}\n\t],\n\t\"EducationDocuments\":[{\n\t\t\"DocumentName\":\"12th Document\",\n\t\t\"DocumentFile\":\"C#\"\n\t\t}\n\t]\n}"
+		},
+		{
+			"id": "ecfe2af4-938f-14b8-41da-abdb1bba4d1f",
+			"headers": "authorization: \n",
+			"headerData": [
+				{
+					"key": "authorization",
+					"value": "",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/member/memberinfo",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "030f9c61-92b9-84da-778d-a41f3256e121",
+			"data": null,
+			"dataMode": "params",
+			"name": "Member Info",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1593065219087,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
 		},
 		{
 			"id": "fb064700-fe22-6dca-7308-72a1e37dfa72",
