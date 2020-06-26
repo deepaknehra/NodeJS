@@ -34,7 +34,7 @@ router.post('/enrollment', async (req,res) => {
 //Login with JWT
 router.post('/login', (req,res) => {
     try{
-        Member.findOne({ Email: req.body.Email,Password:req.body.Password}, function(err, result) {
+        Member.findOne({ Email: req.body.Email,Password:req.body.Password}, { Email: 1, Password: 1 }, function(err, result) {
             if (err) {
               res.send(err);
             } else {
@@ -68,8 +68,14 @@ router.get('/memberinfo', verifyToken, (req,res) => {
             else
             {
                 console.log(authdata.result._id);
-              //  const memberinfo =  Member.findById(req.body._id);
-                res.json(authdata.result);
+                Member.findOne({_id: authdata.result._id},function(err, result) {
+                    if (err) {
+                      res.send(err);
+                    } else {
+                                
+                        res.json({result});
+                    }
+                  });
             }
         });      
     }catch(err){
