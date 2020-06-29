@@ -9,6 +9,10 @@ require("dotenv/config");
 app.use(bodyparser.json());
 
 //Import Post Routes
+const exportRoute = require('./routes/exportcsv');
+app.use('/export', exportRoute);
+
+//Import Post Routes
 const postRoute = require('./routes/post');
 app.use('/post', postRoute);
 
